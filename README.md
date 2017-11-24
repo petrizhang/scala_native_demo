@@ -23,10 +23,12 @@ class OwnMath {
 ```
 
 ## 3. 编译scala类
-点击compile按钮，如下图，注意是compile不是run。
+选择compile配置，如下图，注意是compile不是run。
 
 ![](https://coding.net/u/zeta159/p/Sample/git/raw/master/doc/sbt-task-icon.jpg)
  
+然后点击旁边的三角符号运行compile任务（它是一个sbt task）进行编译。
+
 编译时构建脚本会调用`javah`命令生产相应的.h文件到“SampleSubc/OwnMath.h”内，并且自动生成相应的.cpp文件，在CMakeLists.txt里加入一个新的动态库target。
 
 ## 4. 编译c++动态库
