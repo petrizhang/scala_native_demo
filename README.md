@@ -1,6 +1,7 @@
 # Sample
 
 # Structure
+
 "Sample" directory is a Intellij IDEA project built with sbt.
 
 "SampleSubc" is a Clion project built with cmake.
@@ -9,4 +10,11 @@
 
 # Workflow
 
-首先创建一个类指定native方法
+首先创建一个含有native方法的scala类：
+例如
+```scala
+class OwnMath {
+  @native def add(a:Double,b:Double):Double
+}
+```
+
