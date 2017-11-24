@@ -31,8 +31,26 @@ class OwnMath {
 
 编译时构建脚本会调用`javah`命令生产相应的.h文件到“SampleSubc/OwnMath.h”内，并且自动生成相应的.cpp文件，在CMakeLists.txt里加入一个新的动态库target。
 
-## 4. 编译c++动态库
-然后转到clion，依次点击菜单栏的Run->Build选项进行cpp工程的编译，编译完成后，动态库会生成到`lib`目录内。
+## 4. 实现native方法并编译c++动态库
+然后转到clion，编写native方法对应的c++方法，例如OwnMath.cpp里的内容：
+```cpp
+
+#include "OwnMath.h"
+
+/*
+ * Class:     OwnMath
+ * Method:    add
+ * Signature: (DD)D
+ */
+JNIEXPORT jdouble JNICALL Java_OwnMath_add
+  (JNIEnv *env, jobject obj, jdouble a, jdouble b) {
+    return a+b;
+}
+
+
+```
+
+完成之后编译即可，方法是依次点击菜单栏的Run->Build选项进行cpp工程的编译，编译完成后，动态库会生成到`lib`目录内。
 
 ## 5.在scala内使用动态库
 动态库编译完成就可以在scala项目内任意使用了。
