@@ -17,7 +17,7 @@ lazy val nativeClassNames = List(
 )
 
 lazy val targetClassPath = "target/scala-2.12/classes"
-lazy val cmakeListPath = s"$cProjectPath/CMakeListTest.txt"
+lazy val cmakeListPath = s"$cProjectPath/CMakeLists.txt"
 lazy val headerOutputDir = cProjectPath
 
 (compile in Compile) := (compile in Compile).map(
