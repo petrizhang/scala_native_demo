@@ -66,3 +66,15 @@ JNIEXPORT jdouble JNICALL Java_OwnMath_add
 ![](https://coding.net/u/zeta159/p/Sample/git/raw/master/doc/vm-option.jpg)
 
 在自己使用的时候需要将其中的路径改成自己的lib路径。
+
+在scala代码内使用native类的方法是调用`System.loadLibrary()`加载动态库，然后直接使用类即可：
+
+```
+object Main {
+  def main(args: Array[String]): Unit = {
+    System.loadLibrary("OwnMath")
+
+    val c = new OwnMath
+    println(c.add(123.0, 123.0))
+  }
+```
