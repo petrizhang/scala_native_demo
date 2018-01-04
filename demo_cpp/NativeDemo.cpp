@@ -34,37 +34,5 @@ JNIEXPORT jdouble JNICALL Java_NativeDemo_distance
         result += (plhs[i] - prhs[i]) * (plhs[i] - prhs[i]);
     }
 
-    env->ReleaseDoubleArrayElements(lhs, plhs, 0);
-    env->ReleaseDoubleArrayElements(rhs, prhs, 0);
-
-    return result;
-}
-
-/*
- * Class:     NativeDemo
- * Method:    vectorMulti
- * Signature: ([D[D)[D
- */
-JNIEXPORT jdoubleArray JNICALL Java_NativeDemo_vectorMulti
-        (JNIEnv *env, jobject obj, jdoubleArray lxs, jdoubleArray rMs) {
-    jsize xlen = env->GetArrayLength(lxs);
-    jsize Mlen = env->GetArrayLength(rMs);
-    jsize Mcol = Mlen / xlen;
-    jdouble *lx = env->GetDoubleArrayElements(lxs, 0);
-    jdouble *rM = env->GetDoubleArrayElements(rMs, 0);
-
-    jdoubleArray result = env->NewDoubleArray(Mcol);
-    jdouble *buff = new double[Mcol];
-    memset(buff, Mcol * sizeof(jdouble), 0);
-
-    for (int i = 0; i < Mcol; i++) {
-        for (int j = 0; j < xlen; j++) {
-            buff[i] += lx[j] * rM[i * Mcol + j];
-        }
-    }
-
-    env->ReleaseDoubleArrayElements(lxs, lx, 0);
-    env->ReleaseDoubleArrayElements(rMs, rM, 0);
-    env->SetDoubleArrayRegion(result, 0, Mcol, buff);
     return result;
 }

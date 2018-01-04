@@ -23,14 +23,6 @@ JNIEXPORT jdouble JNICALL Java_NativeDemo_add
 JNIEXPORT jdouble JNICALL Java_NativeDemo_distance
   (JNIEnv *, jobject, jdoubleArray, jdoubleArray);
 
-/*
- * Class:     NativeDemo
- * Method:    vectorMulti
- * Signature: ([D[D)[D
- */
-JNIEXPORT jdoubleArray JNICALL Java_NativeDemo_vectorMulti
-  (JNIEnv *, jobject, jdoubleArray, jdoubleArray);
-
 #ifdef __cplusplus
 }
 #endif
