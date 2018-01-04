@@ -225,9 +225,12 @@ libNativeDemo.dylib(MacOS)/libNativeDemo.so(Linux)/libNativeDemo.dll(Windows)
 #### idea用户
 别忘了idea打开的是"demo_scala"目录。
 
-1. 点击运行按钮左边的下拉条，选择"Edit Configurations"
+1.点击运行按钮左边的下拉条，选择"Edit Configurations"
+
 !(edit configuration)[https://github.com/pzque/scala_native_demo/raw/master/doc/edit-configuration.png]
-2. 然后在VM options一栏里加入`-Djava.library.path=../lib`即可
+
+2.然后在VM options一栏里加入`-Djava.library.path=../lib`即可
+
 !(vm option)[https://github.com/pzque/scala_native_demo/raw/master/doc/vm-option.png]
 
 #### 命令行用户
