@@ -1,4 +1,4 @@
-# scala_native_demo
+# Scala Native Demo
 Demo for scala-c++ cross compile project using sbt and cmake (which could directly work with idea and clion).
 
 ## Dependencies
@@ -196,6 +196,8 @@ JNIEXPORT jdouble JNICALL Java_NativeDemo_distance
 }
 ```
 
+这里是使用JDK提供的JNI接口进行编程，具体的JNI编程规范可以参考JNI官网或者其中文翻译。
+
 写完之后编译即可：
 
 #### clion用户
@@ -221,7 +223,18 @@ libNativeDemo.dylib(MacOS)/libNativeDemo.so(Linux)/libNativeDemo.dll(Windows)
 怎么加呢？
 
 #### idea用户
+别忘了idea打开的是"demo_scala"目录。
+
 1. 点击运行按钮左边的下拉条，选择"Edit Configurations"
 !(edit configuration)[https://github.com/pzque/scala_native_demo/raw/master/doc/edit-configuration.png]
 2. 然后在VM options一栏里加入`-Djava.library.path=../lib`即可
 !(vm option)[https://github.com/pzque/scala_native_demo/raw/master/doc/vm-option.png]
+
+#### 命令行用户
+给jvm启动参数直接加`-Djava.library.path=../lib`即可。
+
+例如在"demo_scala"下使用sbt run：
+```
+sbt -Djava.library.path=../lib run
+```
+将运行程序的main函数。
